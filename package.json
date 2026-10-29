@@ -1,0 +1,13 @@
+{
+  "name": "photo-to-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private, browser-based Arabic image to PDF converter",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test tests/converter.test.cjs"
+  },
+  "dependencies": {
+    "jspdf": "4.2.1"
+  }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="حوّل صورك إلى ملف PDF بسهولة وخصوصية، مباشرة على جهازك.">
+  <title>ورقة — الصور إلى PDF</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/jspdf.umd.min.js"></script>
+  <script defer src="converter.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="ورقة، الرئيسية"><span class="brand-icon">▤</span> ورقة<span class="brand-dot">.</span></a>
+    <span class="privacy"><span></span> صورك تبقى على جهازك</span>
+  </header>
+  <main class="wrap">
+    <section class="intro">
+      <span class="eyebrow">من صور متفرقة، إلى ملف واحد</span>
+      <h1>صورك، في <span>ورقة واحدة.</span></h1>
+      <p>اجمع صورك ورتّبها وحوّلها إلى PDF خلال لحظات.<br>بكل بساطة، وبخصوصية تامة.</p>
+    </section>
+    <div class="workspace">
+      <section class="images-panel" aria-labelledby="images-heading">
+        <div id="drop-zone" class="drop-zone">
+          <span class="upload-icon" aria-hidden="true">↥</span>
+          <h2 id="images-heading">اسحب صورك إلى هنا</h2>
+          <p>أو اخترها من جهازك لتبدأ</p>
+          <button id="choose-files" class="button primary" type="button">＋ اختيار الصور</button>
+          <span class="formats">JPG · PNG · WebP <span>حتى 30 صورة، و20 MB للصورة</span></span>
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        </div>
+        <div id="collection" class="collection" hidden>
+          <div class="collection-header"><h2>صورك <span id="image-count" class="count">0</span></h2><button id="clear-all" class="text-button" type="button">حذف الكل</button></div>
+          <p class="hint">ترتيب الصور هنا هو ترتيب صفحات الملف. استخدم الأسهم لتغييره.</p>
+          <div id="image-grid" class="image-grid"></div>
+          <button id="add-more" class="add-more" type="button">＋ إضافة صور أخرى</button>
+        </div>
+        <div class="local-note"><span aria-hidden="true">◈</span><div><strong>مساحة خاصة لصورك</strong><p>تتم المعالجة في متصفحك، دون رفع الملفات إلى أي خادم.</p></div></div>
+      </section>
+      <aside class="settings" aria-labelledby="settings-heading">
+        <div class="settings-title"><span class="mini-icon" aria-hidden="true">☷</span><h2 id="settings-heading">إعدادات الملف</h2></div>
+        <label for="filename">اسم الملف</label>
+        <div class="filename-field"><input id="filename" type="text" value="صوري" maxlength="100" autocomplete="off"><span>.pdf</span></div>
+        <label for="page-size">حجم الصفحة</label>
+        <select id="page-size"><option value="a4">A4 — مناسب للطباعة</option><option value="letter">Letter</option><option value="image">حجم الصورة الأصلي</option></select>
+        <fieldset id="orientation-field"><legend>اتجاه الصفحة</legend><div class="segmented"><label><input type="radio" name="orientation" value="portrait" checked><span>▯ &nbsp; عمودي</span></label><label><input type="radio" name="orientation" value="landscape"><span>▭ &nbsp; أفقي</span></label></div></fieldset>
+        <label for="margin">هوامش الصفحة</label>
+        <select id="margin"><option value="10">عادية — 10 مم</option><option value="5">صغيرة — 5 مم</option><option value="0">دون هوامش</option></select>
+        <div class="quality-label"><label for="quality">جودة الصور</label><output id="quality-value" for="quality">85%</output></div>
+        <input id="quality" type="range" min="40" max="100" value="85" step="5">
+        <div class="range-labels"><span>حجم أصغر</span><span>جودة أعلى</span></div>
+        <p class="quality-note">تُضغط الصور بصيغة JPEG، وتظهر الخلفيات الشفافة باللون الأبيض.</p>
+        <div class="summary"><span>صفحة لكل صورة</span><strong id="page-count">0 صفحات</strong></div>
+        <button id="convert" class="button primary convert" disabled type="button">إنشاء ملف PDF <span aria-hidden="true">↓</span></button>
+        <p class="download-note">ملف واحد، جاهز للتنزيل.</p>
+      </aside>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    <section class="steps" aria-label="طريقة الاستخدام"><div><span>01</span><p><strong>اختر صورك</strong>من هاتفك أو حاسوبك</p></div><div><span>02</span><p><strong>رتّب كما تحب</strong>واضبط شكل الصفحات</p></div><div><span>03</span><p><strong>نزّل ملفك</strong>كل الصور، في PDF واحد</p></div></section>
+  </main>
+  <footer class="wrap"><span>ورقة. تفاصيل أقل، إنجاز أكثر.</span><span>صُنع لتبسيط يومك ✦</span></footer>
+</body>
+</html>
