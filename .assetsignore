@@ -1,0 +1,10 @@
+# Publish only browser files when deploying with: wrangler deploy --assets .
+*
+!index.html
+!styles.css
+!app.js
+!converter.js
+!vendor/
+vendor/*
+!vendor/jspdf.umd.min.js
+!vendor/LICENSE.jspdf
